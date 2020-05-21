@@ -1,5 +1,8 @@
-version: "3"
+version: "3.8"
 services:
-  nginx:
-    networks:
-      laravel
+  webapp:
+    build:
+      context: ./dir
+      dockerfile: Dockerfile-alternate
+      args:
+        buildno: 1
