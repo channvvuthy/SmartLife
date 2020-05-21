@@ -1,5 +1,14 @@
-version: "3"
+version: "3.8"
 services:
-  nginx:
-    networks:
-      laravel
+  redis:
+    image: redis:latest
+    deploy:
+      replicas: 1
+    configs:
+      - my_config
+      - my_other_config
+configs:
+  my_config:
+    file: ./my_config.txt
+  my_other_config:
+    external: true
